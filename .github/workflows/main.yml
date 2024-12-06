@@ -166,4 +166,3 @@ jobs:
         message: |
             Деплой выполнен успешно!
             ${{ github.actor }} создал commit ${{ github.event.commits[0].message }}
-            https://github.com/${{ github.repository }}/commit/${{github.sha}}
