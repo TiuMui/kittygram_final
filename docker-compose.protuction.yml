@@ -12,7 +12,7 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
   backend:
-    build: ./backend/
+    image: tiumui/kittygram_backend
     env_file: .env
     depends_on:
       - db
@@ -20,12 +20,12 @@ services:
       - static:/backend_static
       - media:/mediafiles
   frontend:
-    build: ./frontend/
+    image: tiumui/kittygram_frontend
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static
   gateway:
-    build: ./nginx/
+    image: tiumui/kittygram_gateway
     ports:
       - 9000:80
     volumes:
